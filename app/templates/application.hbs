@@ -1,5 +1,12 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
+<ul class="nav nav-tabs" dir="rtl">
+  <li class="nav-item">
+    {{#link-to 'application' class="nav-link"}}עמוד הבית{{/link-to}}
+  </li>
+  <li class="nav-item">
+    {{#link-to 'tasks' class="nav-link"}}משימות{{/link-to}}
+  </li>
+  <li class="nav-item">
+    {{#link-to 'tasks.new' class="nav-link"}}הוסף משימה{{/link-to}}
+  </li>
+</ul>
 {{outlet}}

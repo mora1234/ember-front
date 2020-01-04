@@ -1,0 +1,27 @@
+<div class="tasks-container" dir="rtl">
+  <div class="tasks-header">
+<ul>
+  <li id="li-header">משימות</li>
+  <li id="plus-icon">{{#link-to 'tasks.new'}}+{{/link-to}}</li>
+</ul>
+  </div>
+  <div class="tasks-list">
+{{outlet}}
+ <ul>
+   {{#each tasks as |task|}}
+    <li class="{{if task.is_completed "task-is-completed"}}">
+     <button {{action "checkIsCompleted" task.id task.title task.is_completed}}>{{if task.is_completed '✓' 'o'}}</button>
+      {{#link-to 'tasks.edit' task.id}}{{task.title}}{{/link-to}}
+     <button class="delete-task" {{action 'removeTask' task.id}}>X</button>
+      </li>
+   {{/each}}
+ </ul>
+  </div>
+  <div class="tasks-footer">
+ <ul>
+  <li>סה''כ: {{totalTasks}}</li>
+  <li>הושלמו: {{totalCompleted}}</li>
+  <li>נשארו: {{notCompleted}}</li>
+</ul>
+  </div>
+</div>
